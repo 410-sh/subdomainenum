@@ -4,22 +4,6 @@ import threading
 from progressbar import ProgressBar
 import argparse
 
-#def get_input():
-#    file_option = input(
-#        "Select which file to use.\n(1) Small subdomain list\n(2) Medium subdomain list\n(3) Large subdomain list:  ")
-#    if file_option == '1':
-#        file_name = 'subdomains-small.txt'
-#    elif file_option == '2':
-#        file_name = 'subdomains-medium.txt'
-#    elif file_option == '3':
-#        file_name = 'subdomains-huge.txt'
-#    else:
-#        print('Invalid option.')
-#        file_name = ""
-#        get_input()
-#    return file_name
-
-
 def scan_domain(file_name, domain):
     pbar = ProgressBar()
     existing_urls = []
@@ -50,8 +34,6 @@ try:
     parser.add_argument('-w', type=str, required=True, help="Subdomain wordlist file")
     options = parser.parse_args()
 
-    #domain = input('Enter the domain to scan: ').strip()
-    #file_name = get_input()
     x = threading.Thread(target=scan_domain, args=(options.w, options.u,))
     x.start()
 
